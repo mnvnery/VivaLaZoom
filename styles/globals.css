@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@font-face {
+  font-family: 'Post Grotesk';
+  src: url('../public/fonts/PostGrotesk-Regular.otf');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Post Grotesk';
+  src: url('../public/fonts/PostGrotesk-Bold.otf');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'Playfair';
+  src: url('../public/fonts/PlayfairDisplay-Regular.ttf');
+  font-weight: bold;
+}
+
+body {
+  font-family: 'Post Grotesk';
+}
