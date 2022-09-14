@@ -3,6 +3,10 @@ import Image from 'next/image'
 import Link from 'next/link'
 import SoftMotion from '../components/SoftMotion'
 import { motion } from 'framer-motion'
+import dynamic from 'next/dynamic'
+
+const ReactPlayer = dynamic(() => import('react-player/lazy'), { ssr: false })
+
 
 const INSIGHTS_QUERY = `{
     insightsPage {
@@ -37,7 +41,7 @@ function postSize(size) {
         return 'col-span-12 md:col-span-4'
     }
     if (size === 'medium') {
-        return 'col-span-12 md:col-span-6'
+        return 'col-span-12'
     }
     if (size === 'large') {
         return 'col-span-12'
@@ -46,13 +50,25 @@ function postSize(size) {
 
 function imageHeight(size) {
     if (size === 'small') {
-        return 'h-[30vh] md:h-[40vh]'
+        return 'h-[40vh] md:h-[40vh] xxl:h-[35vh]'
     }
     if (size === 'medium') {
-        return 'h-[30vh] md:h-[55vh]'
+        return 'h-[40vh] md:h-[53vh] xxl:h-[46vh]'
     }
     if (size === 'large') {
-        return 'h-[60vh] md:h-[70vh]'
+        return 'h-[60vh] md:h-[70vh xxl:h-[60vh]'
+    }
+}
+
+function flexSize(size) {
+    if (size === 'small') {
+        return ''
+    }
+    if (size === 'medium') {
+        return 'w-full md:w-1/2'
+    }
+    if (size === 'large') {
+        return 'w-full md:w-2/3'
     }
 }
 
@@ -73,6 +89,8 @@ function colour(hex) {
         return ''
     }
 }
+
+
 
 export async function getStaticProps() {
     const page = await request({
@@ -107,7 +125,7 @@ export default function Insights({ page }) {
                 <Link href={`#`}>
                 <div>
                     <div className="relative">
-                    <div className="relative h-[40vh] w-full">
+                    <div className="relative h-[40vh] w-full xxl:h-[35vh]">
                         <Image
                         src={insight.coverImage.url}
                         objectFit="cover"
@@ -146,11 +164,11 @@ export default function Insights({ page }) {
         </motion.div>
         <div className="mb-16 grid grid-flow-dense grid-cols-12 gap-5 md:gap-7">
             {page.articles.slice(3).map((insight, i) => (
-            <div key={i} className={`hover-view ${postSize(insight.size)}`}>
+            <div key={i} className={`hover-view ${postSize(insight.size)} ${imageHeight(insight.size)}`}>
                 <SoftMotion>
                 <Link href={`#`}>
-                <div className={insight.size === 'large' ? 'flex w-full space-x-7' : ''}>
-                    <div className={`relative ${insight.size === 'large' ? 'w-full md:w-2/3' : ''}`}>
+                <div className={insight.size === 'small' ? '' : 'flex w-full space-x-7'}>
+                    <div className={`relative ${flexSize(insight.size)}`}>
                     <div className={`relative w-full ${imageHeight(insight.size)}`}>
                         <Image
                         src={insight.coverImage.url}
@@ -162,7 +180,7 @@ export default function Insights({ page }) {
                         />
                     </div>
                     <div
-                        className={`absolute top-0 left-0 h-full w-full mix-blend-multiply ${
+                        className={`absolute top-0 left-0 ${imageHeight(insight.size)} w-full mix-blend-multiply ${
                         insight.size === 'small' ? 'rounded-xl' : 'rounded-xl rounded-tl-none'
                         } ${insight.layoverColor ? colour(insight.layoverColor.hex) : ''}`}
                     ></div>
@@ -202,12 +220,39 @@ export default function Insights({ page }) {
                         layout="fill"
                     ></Image>
                     </div>
+                    <div
+                    className={`${
+                        insight.size === 'medium'
+                        ? 'relative hidden rounded-xl md:block md:w-1/2'
+                        : 'hidden'
+                    }`}
+                    >
+                        <ReactPlayer
+                        url='https://vimeo.com/615880369'
+                        playing
+                        muted
+                        loop
+                        controls={false}
+                        width="100%"
+                        height="100%"
+                        className="absolute top-0 left-0 overflow-hidden rounded-xl"
+                        />
+                    </div>
                 </div>
                 </Link>
                 </SoftMotion>
             </div>
             ))}
         </div>
+        <motion.div
+            initial={{ x: -100, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ stiffness: 50, duration: 0.7 }}
+        >
+        <div className="relative my-10 h-[18vh] w-full md:my-16 md:h-[65vh]">
+            <Image src={page.footerImage.url} objectFit="contain" layout="fill" />
+        </div>
+        </motion.div>
         </>
     )
 }

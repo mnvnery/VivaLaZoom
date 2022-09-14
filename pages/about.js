@@ -88,7 +88,7 @@ export default function About({ aboutPage }) {
         </div>
         <div className="mt-[47vh] md:mt-[67vh] 2xl:mt-[75vh]"></div>
 
-        <div className="mb-12 md:mb-16 xxl:mb-24 md:flex justify-between">
+        <div className="mb-12 md:mb-16 xxl:mb-24 md:flex justify-between items-center">
             <div className='md:w-3/4'>
             <div className="mb-5 text-xl md:mb-3 md:text-2xl xxl:mb-8 xxl:mt-8 xxl:text-5xl">
             Who we are
@@ -97,7 +97,7 @@ export default function About({ aboutPage }) {
             {aboutPage.about.whoWeAre}
             </div>
             </div>
-            <div className='relative h-52 w-52 hidden md:block'>
+            <div className='relative h-52 w-52 hidden md:block xxl:w-64 xxl:h-64'>
                 <Image
                 src={'/static/images/asterisk.svg'}
                 objectFit="contain"
@@ -221,7 +221,7 @@ export default function About({ aboutPage }) {
             />
             <div className="flex h-full w-full items-center justify-center">
                 <div className="absolute">
-                    <div className='relative w-[40vw] h-40 md:h-32 md:w-[25vw]'>
+                    <div className='relative w-[40vw] h-40 md:h-32 md:w-[25vw] xxl:h-56'>
                         <Image src={'/static/images/mim.svg'} objectFit='contain' layout='fill'/>
                     </div>
                 </div>
@@ -280,9 +280,9 @@ export default function About({ aboutPage }) {
             </div>
         </SoftMotion>
         <SoftMotion>
-            <div className='bg-gray-100 mx-[-2em] px-8 py-12 mt-24 rounded-t-xl xxl:mt-40'>
+            <div className='bg-gray-100 mx-[-2em] px-8 py-12 mt-24 rounded-t-xl xxl:mt-40 xxl:mx-[-5em] xxl:px-20'>
             <div className="mb-10 text-2xl xxl:mb-20 xxl:text-5xl">Our History</div>
-            <div className="paragraphs mx-10 mb-44 text-xl md:mx-32 md:columns-2 md:text-2xl xxl:mx-56 xxl:text-5xl">
+            <div className="paragraphs mx-10 mb-44 text-xl md:mx-32 md:columns-2 md:text-2xl xxl:mx-56 xxl:text-5xl xxl:mb-56">
                 <div dangerouslySetInnerHTML={{__html: aboutPage.about.history}} />
             </div>
             </div>
@@ -292,7 +292,7 @@ export default function About({ aboutPage }) {
             whileInView={{ x: 0, opacity: 1 }}
             transition={{ stiffness: 50, duration: 0.7 }}
         >
-            <div className="relative mb-12 h-[35vh] w-full md:h-[85vh] md:w-[60vw] mt-[-8em] md:mt-[-10em]">
+            <div className="relative mb-12 h-[35vh] w-full md:h-[85vh] md:w-[60vw] mt-[-8em] md:mt-[-10em] xxl:mt-[-15em] xxl:h-[70vh]">
             <Image src={aboutPage.about.image2.url} objectFit="contain" layout="fill" />
             </div>
         </motion.div>
