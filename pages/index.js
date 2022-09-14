@@ -6,6 +6,7 @@ import EmblaCarousel from '../components/EmblaCarousel'
 import Button from '../components/Button'
 import ProjectCard from '../components/ProjectCard'
 import Link from 'next/link'
+import SoftMotion from '../components/SoftMotion'
 
 const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
 
@@ -84,7 +85,7 @@ export default function Home({ home, insights, work }) {
         />
       </div>
     {/* Who we are section */}
-
+    <SoftMotion>
     <div className="mx-[-2em] mb-6 bg-pink px-8 pt-8 xxl:mx-[-5em] xxl:px-20 xxl:py-10">
         <div className="md:w-3/4">
           <div className="mb-5 text-xl md:mb-3 md:text-2xl xxl:mb-8 xxl:mt-8 xxl:text-5xl">
@@ -99,6 +100,7 @@ export default function Home({ home, insights, work }) {
           <Button href="/about" text="Find out more"></Button>
         </div>
       </div>
+    </SoftMotion>
       <div className="hidden md:block">
         <div className="mb-3 text-2xl xxl:mb-12 xxl:mt-20 xxl:text-5xl">Latest Work</div>
         <div className="grid grid-cols-3 gap-5 xxl:gap-10">
