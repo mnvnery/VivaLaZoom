@@ -5,7 +5,7 @@ const ProjectCard = ({ thumbnail, title, description, href }) => (
   <div className="hover-view">
     <Link href={href}>
       <div>
-        <div className="relative h-[70vh] w-full">
+        <div className="relative h-[55vh] md:h-[70vh] w-full">
           <Image src={thumbnail} objectFit="cover" layout="fill" />
         </div>
         <div className="view relative">

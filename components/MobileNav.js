@@ -79,7 +79,7 @@ return (
                 href={link.href} 
             >
                 <a onClick={onToggleNav}
-                className="text-7xl leading-8 text-white">{link.title}
+                className="text-6xl leading-8 text-white">{link.title}
                 </a>
             </Link>
             </div>
@@ -91,12 +91,15 @@ return (
         </div>
         </div>
         <div className="px-5 font-bold uppercase leading-tight">
-        <div>
+        <a href={`mailto:${siteMetadata.email}`} className="hover:text-pink">
             HELLO
             <br />
             @VIVALAZOOM.CO.UK
-        </div>
-        <div>+44(0)161 225 1045</div>
+            </a>
+            <br />
+            <a href={`tel:${siteMetadata.phone}`} className="hover:text-pink">
+            +44(0)161 225 1045
+            </a>
         <br />
         <a href="https://www.instagram.com/viva_la_zoom/" target="_blank" rel="noreferrer">
             INSTAGRAM

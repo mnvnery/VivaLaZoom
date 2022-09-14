@@ -20,7 +20,7 @@ return (
             +44(0)161 225 1045
             </a>
             <br />
-            <div className="md:hidden">
+            <div className="md:hidden mt-5">
             <a
                 href="https://www.instagram.com/viva_la_zoom/"
                 target="_blank"
