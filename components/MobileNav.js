@@ -79,7 +79,7 @@ return (
                 href={link.href} 
             >
                 <a onClick={onToggleNav}
-                className="text-6xl leading-8 text-white">{link.title}
+                className="text-7xl leading-8 text-white">{link.title}
                 </a>
             </Link>
             </div>
@@ -97,7 +97,7 @@ return (
             @VIVALAZOOM.CO.UK
             </a>
             <br />
-            <a href={`tel:${siteMetadata.phone}`} className="hover:text-pink">
+            <a href={`tel:${siteMetadata.phone}`} className="hover:text-pink mb-5">
             +44(0)161 225 1045
             </a>
         <br />
