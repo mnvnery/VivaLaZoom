@@ -116,6 +116,7 @@ export default function Home({ home, insights, work }) {
           ))}
         </div>
       </div>
+      <SoftMotion>
       <div className="md:hidden">
         <EmblaCarousel title="Latest Work">
           {work.allProjects.map((w, i) => (
@@ -135,10 +136,11 @@ export default function Home({ home, insights, work }) {
           ))}
         </EmblaCarousel>
       </div>
+      </SoftMotion>
       <div className="py-10 text-center xxl:py-24">
         <Button href="/work" text="Discover all work"></Button>
       </div>
-      <div>
+      <SoftMotion>
         <div className="mx-[-2em] rounded-xl bg-gray-100 px-8 pt-6 xxl:mx-[-5em] xxl:px-20 xxl:pt-14">
           <div className="hidden md:block">
             <div className="mb-3 text-2xl xxl:mb-12 xxl:text-5xl">Insights</div>
@@ -200,8 +202,8 @@ export default function Home({ home, insights, work }) {
             <Button href="/work" text="Discover all insights"></Button>
           </div>
         </div>
-      </div>
-      <div>
+      </SoftMotion>
+      <SoftMotion>
         <div className="my-10 md:flex md:space-x-20 xxl:my-16">
           <div className="md:w-1/2">
             <div className="mb-5 text-2xl xxl:mb-8 xxl:text-5xl">Clients</div>
@@ -215,7 +217,7 @@ export default function Home({ home, insights, work }) {
             ))}
           </div>
         </div>
-      </div>
+      </SoftMotion>
     </>
   )
 }
