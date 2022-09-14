@@ -8,6 +8,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        xxl: '1980px',
+      },
       fontFamily: {
         playfair: ['Playfair', 'serif'],
       },

@@ -86,14 +86,22 @@ export default function About({ aboutPage }) {
             FILM & MEDIA PRODUCTION COMPANY
             </div>
         </div>
-        <div className="mt-[47vh] md:mt-[67vh]"></div>
+        <div className="mt-[47vh] md:mt-[67vh] 2xl:mt-[75vh]"></div>
 
-        <div className="mb-12 md:mb-16 md:w-3/4 xxl:mb-24">
+        <div className="mb-12 md:mb-16 xxl:mb-24 md:flex justify-between">
+            <div className='md:w-3/4'>
             <div className="mb-5 text-xl md:mb-3 md:text-2xl xxl:mb-8 xxl:mt-8 xxl:text-5xl">
             Who we are
             </div>
             <div className="text-3xl font-bold md:text-5xl xxl:text-7xl">
             {aboutPage.about.whoWeAre}
+            </div>
+            </div>
+            <div className='relative h-52 w-52 hidden md:block'>
+                <Image
+                src={'/static/images/asterisk.svg'}
+                objectFit="contain"
+                layout="fill" />
             </div>
         </div>
 
@@ -212,10 +220,10 @@ export default function About({ aboutPage }) {
                 className="rounded-b-xl rounded-tr-xl"
             />
             <div className="flex h-full w-full items-center justify-center">
-                <div className="absolute rounded-b-xl rounded-tr-xl bg-black px-8 py-2 text-2xl leading-tight text-white md:text-5xl xxl:text-7xl">
-                Moving Image
-                <br />
-                Makers
+                <div className="absolute">
+                    <div className='relative w-[40vw] h-40 md:h-32 md:w-[25vw]'>
+                        <Image src={'/static/images/mim.svg'} objectFit='contain' layout='fill'/>
+                    </div>
                 </div>
             </div>
             </div>
@@ -272,9 +280,11 @@ export default function About({ aboutPage }) {
             </div>
         </SoftMotion>
         <SoftMotion>
-            <div className="mb-10 mt-16 text-2xl xxl:mt-32 xxl:mb-20 xxl:text-5xl">Our History</div>
-            <div className="paragraphs mx-10 mb-12 text-xl md:mx-32 md:columns-2 md:text-2xl xxl:mx-56 xxl:text-5xl">
+            <div className='bg-gray-100 mx-[-2em] px-8 py-12 mt-24 rounded-t-xl xxl:mt-40'>
+            <div className="mb-10 text-2xl xxl:mb-20 xxl:text-5xl">Our History</div>
+            <div className="paragraphs mx-10 mb-44 text-xl md:mx-32 md:columns-2 md:text-2xl xxl:mx-56 xxl:text-5xl">
                 <div dangerouslySetInnerHTML={{__html: aboutPage.about.history}} />
+            </div>
             </div>
         </SoftMotion>
         <motion.div
@@ -282,7 +292,7 @@ export default function About({ aboutPage }) {
             whileInView={{ x: 0, opacity: 1 }}
             transition={{ stiffness: 50, duration: 0.7 }}
         >
-            <div className="relative mb-12 h-[35vh] w-full md:h-[85vh] md:w-[60vw]">
+            <div className="relative mb-12 h-[35vh] w-full md:h-[85vh] md:w-[60vw] mt-[-8em] md:mt-[-10em]">
             <Image src={aboutPage.about.image2.url} objectFit="contain" layout="fill" />
             </div>
         </motion.div>

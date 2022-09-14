@@ -101,6 +101,7 @@ export default function Home({ home, insights, work }) {
         </div>
       </div>
     </SoftMotion>
+      <SoftMotion>
       <div className="hidden md:block">
         <div className="mb-3 text-2xl xxl:mb-12 xxl:mt-20 xxl:text-5xl">Latest Work</div>
         <div className="grid grid-cols-3 gap-5 xxl:gap-10">
@@ -116,6 +117,7 @@ export default function Home({ home, insights, work }) {
           ))}
         </div>
       </div>
+      </SoftMotion>
       <SoftMotion>
       <div className="md:hidden">
         <EmblaCarousel title="Latest Work">
