@@ -24,3 +24,13 @@
 body {
   font-family: 'Post Grotesk';
 }
+
+.embla {
+  overflow: hidden;
+}
+.embla__container {
+  display: flex;
+}
+.embla__slide {
+  flex: 0 0 100%;
+}
