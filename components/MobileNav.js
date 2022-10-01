@@ -8,15 +8,15 @@ const MobileNav = () => {
 const [navShow, setNavShow] = useState(false)
 
 const onToggleNav = () => {
-setNavShow((status) => {
-    if (status) {
-    document.body.style.overflow = 'auto'
-    } else {
-    // Prevent scrolling
-    document.body.style.overflow = 'hidden'
-    }
-    return !status
-})
+    setNavShow((status) => {
+        if (status) {
+        document.body.style.overflow = 'auto'
+        } else {
+        // Prevent scrolling
+        document.body.style.overflow = 'hidden'
+        }
+        return !status
+    })
 }
 
 return (
@@ -85,9 +85,11 @@ return (
             </div>
         ))}
         <div className="px-5 py-4">
-            <a href={`mailto:${siteMetadata.email}`} className="text-7xl leading-8 text-white">
+            <Link href='/contact'>
+            <a onClick={onToggleNav} className="text-7xl leading-8 text-white">
             Contact
             </a>
+            </Link>
         </div>
         </div>
         <div className="px-5 font-bold uppercase leading-tight">
@@ -105,12 +107,12 @@ return (
             INSTAGRAM
         </a>
         <br />
-        <a href="https://twitter.com/vivalazoomuk" target="_blank" rel="noreferrer">
-            TWITTER
+        <a href="https://www.linkedin.com/company/viva-la-zoom-" target="_blank" rel="noreferrer">
+            LINKEDIN
         </a>
         <br />
-        <a href="https://en-gb.facebook.com/vivalazoom/" target="_blank" rel="noreferrer">
-            FACEBOOK
+        <a href="https://www.behance.net/VivaLaZoom" target="_blank" rel="noreferrer">
+            BEHANCE
         </a>
         </div>
     </nav>

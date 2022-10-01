@@ -73,12 +73,13 @@ export async function getStaticProps() {
 export default function Home({ home, insights, work }) {
   return (
     <>
-    <div className="relative mt-10 mb-8 rounded-xl pt-[56.25%] md:mt-0 xxl:mt-10 xxl:mb-16">
+    <div className="relative mb-8 rounded-xl pt-[56.25%] md:mt-0 xxl:mb-16">
         <ReactPlayer
           url='https://vimeo.com/747234731'
           playing
           muted
           loop
+          controls="false"
           width="100%"
           height="100%"
           className="absolute top-0 left-0 overflow-hidden rounded-xl"
@@ -86,7 +87,7 @@ export default function Home({ home, insights, work }) {
       </div>
     {/* Who we are section */}
     <SoftMotion>
-    <div className="mx-[-2em] mb-6 bg-pink px-8 pt-8 xxl:mx-[-5em] xxl:px-20 xxl:py-10">
+    <div className="mx-[-1em] md:mx-[-2em] mb-6 bg-pink px-8 pt-8 xxl:mx-[-5em] xxl:px-20 xxl:py-10">
         <div className="md:w-3/4">
           <div className="mb-5 text-xl md:mb-3 md:text-2xl xxl:mb-8 xxl:mt-8 xxl:text-5xl">
             Who we are
@@ -143,7 +144,7 @@ export default function Home({ home, insights, work }) {
         <Button href="/work" text="Discover all work"></Button>
       </div>
       <SoftMotion>
-        <div className="mx-[-2em] rounded-xl bg-gray-100 px-8 pt-6 xxl:mx-[-5em] xxl:px-20 xxl:pt-14">
+        <div className="mx-[-1em] md:mx-[-2em] rounded-xl bg-gray-100 px-8 pt-6 xxl:mx-[-5em] xxl:px-20 xxl:pt-14">
           <div className="hidden md:block">
             <div className="mb-3 text-2xl xxl:mb-12 xxl:text-5xl">Insights</div>
             <div className="grid grid-cols-3 gap-5 xxl:gap-10">

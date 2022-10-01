@@ -75,19 +75,15 @@ export async function getStaticProps() {
 export default function About({ aboutPage }) {
     return (
         <>
-        <div className="absolute top-0 left-0 mx-[-1vw] h-[50vh] w-[102vw] md:h-[85vh]">
+        <div className="absolute top-0 left-0 mx-[-1vw] h-[20vh] w-[102vw] md:h-[40vh]">
             <Image
             src={aboutPage.about.headerImage.url}
             objectFit="cover"
             layout="fill"
             className="object-bottom"
             />
-            <div className="text-bold absolute top-[20vh] right-7 w-min text-5xl md:right-40 md:text-8xl xxl:right-48 xxl:top-[20vh] xxl:text-[12em]">
-            FILM & MEDIA PRODUCTION COMPANY
-            </div>
         </div>
-        <div className="mt-[47vh] md:mt-[67vh] 2xl:mt-[75vh]"></div>
-
+        <div className="mt-[16vh] md:mt-[22vh] 2xl:mt-[30vh] xxl:mt-[28vh]"></div>
         <div className="mb-12 md:mb-16 xxl:mb-24 md:flex justify-between items-center">
             <div className='md:w-3/4'>
             <div className="mb-5 text-xl md:mb-3 md:text-2xl xxl:mb-8 xxl:mt-8 xxl:text-5xl">
@@ -280,7 +276,7 @@ export default function About({ aboutPage }) {
             </div>
         </SoftMotion>
         <SoftMotion>
-            <div className='bg-gray-100 mx-[-2em] px-8 py-12 mt-24 rounded-t-xl xxl:mt-40 xxl:mx-[-5em] xxl:px-20'>
+            <div className='bg-gray-100 mx-[-1em] md:mx-[-2em] px-8 py-12 mt-24 rounded-t-xl xxl:mt-40 xxl:mx-[-5em] xxl:px-20'>
             <div className="mb-10 text-2xl xxl:mb-20 xxl:text-5xl">Our History</div>
             <div className="paragraphs mx-10 mb-44 text-xl md:mx-32 md:columns-2 md:text-2xl xxl:mx-56 xxl:text-5xl xxl:mb-56">
                 <div dangerouslySetInnerHTML={{__html: aboutPage.about.history}} />
