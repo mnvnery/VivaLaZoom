@@ -1,7 +1,14 @@
 import Image from "next/image"
 import siteMetadata from '../data/siteMetadata'
 
-export default function Footer() {
+const contact =  {
+    instagram: "https://www.instagram.com/viva_la_zoom/",
+    linkedin: "https://www.linkedin.com/company/viva-la-zoom-",
+    behance: "https://www.behance.net/VivaLaZoom",
+    phone: "+44 161 225 1045",
+    email: "hello@vivalazoom.co.uk"
+}
+export default function Footer({contact}) {
 return (
     <footer className="z-[2]">
     <div className="mx-auto bg-black px-5 py-10 text-white md:pl-8 md:pr-20 md:pt-20 md:pb-12 xxl:pl-16">
@@ -17,12 +24,12 @@ return (
             </a>
             <br />
             <a href={`tel:${siteMetadata.phone}`} className="hover:text-pink">
-            +44(0)161 225 1045
+            +44 161 225 1045
             </a>
             <br />
             <div className="md:hidden mt-5">
             <a
-                href="https://www.instagram.com/viva_la_zoom/"
+                href='https://www.instagram.com/viva_la_zoom/'
                 target="_blank"
                 rel="noreferrer"
                 className="hover:text-pink"
@@ -31,27 +38,27 @@ return (
             </a>
             <br />
             <a
-                href="https://twitter.com/vivalazoomuk"
+                href="https://www.linkedin.com/company/viva-la-zoom-"
                 target="_blank"
                 rel="noreferrer"
                 className="hover:text-pink"
             >
-                TWITTER
+                LINKEDIN
             </a>
             <br />
             <a
-                href="https://en-gb.facebook.com/vivalazoom/"
+                href="https://www.behance.net/VivaLaZoom"
                 target="_blank"
                 rel="noreferrer"
                 className="hover:text-pink"
             >
-                FACEBOOK
+                BEHANCE
             </a>
             </div>
         </div>
         <div className="hidden font-bold leading-tight md:block md:text-3xl xxl:text-6xl">
             <a
-            href="https://www.instagram.com/viva_la_zoom/"
+            href='https://www.instagram.com/viva_la_zoom/'
             target="_blank"
             rel="noreferrer"
             className="hover:text-pink"
@@ -60,21 +67,21 @@ return (
             </a>
             <br />
             <a
-            href="https://twitter.com/vivalazoomuk"
+            href="https://www.linkedin.com/company/viva-la-zoom-"
             target="_blank"
             rel="noreferrer"
             className="hover:text-pink"
             >
-            TWITTER
+            LINKEDIN
             </a>
             <br />
             <a
-            href="https://en-gb.facebook.com/vivalazoom/"
+            href="https://www.behance.net/VivaLaZoom"
             target="_blank"
             rel="noreferrer"
             className="hover:text-pink"
             >
-            FACEBOOK
+            BEHANCE
             </a>
         </div>
         </div>

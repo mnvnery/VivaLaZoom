@@ -107,12 +107,12 @@ return (
             INSTAGRAM
         </a>
         <br />
-        <a href="https://twitter.com/vivalazoomuk" target="_blank" rel="noreferrer">
-            TWITTER
+        <a href="https://www.linkedin.com/company/viva-la-zoom-" target="_blank" rel="noreferrer">
+            LINKEDIN
         </a>
         <br />
-        <a href="https://en-gb.facebook.com/vivalazoom/" target="_blank" rel="noreferrer">
-            FACEBOOK
+        <a href="https://www.behance.net/VivaLaZoom" target="_blank" rel="noreferrer">
+            BEHANCE
         </a>
         </div>
     </nav>

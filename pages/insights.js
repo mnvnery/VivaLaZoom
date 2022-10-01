@@ -111,7 +111,7 @@ export default function Insights({ page }) {
             className="object-left-bottom"
             />
         </div>
-        <div className="mt-[16vh] md:mt-[22vh] xxl:mt-[32vh]"></div>
+        <div className="mt-[16vh] md:mt-[22vh] 2xl:mt-[30vh] xxl:mt-[28vh]"></div>
         <SoftMotion>
         <div className="mb-12 md:mb-16 md:w-3/4 xxl:mb-24">
             <div className="mb-5 text-xl md:mb-8 md:text-2xl xxl:mb-10 xxl:text-5xl">Insights</div>
