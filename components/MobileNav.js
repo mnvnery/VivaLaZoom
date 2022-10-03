@@ -49,7 +49,7 @@ return (
     >
     <div className="mt-6 flex justify-between">
         <Link href="/">
-        <div className="relative ml-6 h-10 w-1/2">
+        <div className="relative ml-6 h-10 w-1/2" onClick={onToggleNav}>
             <Image src={'/static/images/logo-white.svg'} layout="fill" objectFit="contain" alt='logo'/>
         </div>
         </Link>
