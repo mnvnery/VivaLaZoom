@@ -51,6 +51,9 @@ useEffect(() => {
         window.removeEventListener("scroll", handleScroll);
     };
 }, []);
+
+const showContact = router.pathname === '/contact' ? false : true;
+
 return (
     <>
     <div className="flex h-auto flex-col justify-between">
@@ -83,8 +86,9 @@ return (
         </div>
         </header>
         <main className="mx-4 md:mx-8 xxl:mx-20">{children}</main>
-        <div className="min-h-[8vh] md:min-h-[11vh] 2xl:min-h-[7vh] xxl:min-h-[9vh]">
-            <div className={`-translate-x-1/2 left-1/2 ${isOpen ? 'fixed top-20 flex justify-center items-center z-20 xxl:top-60' : 'absolute z-[1] mb-[-2em] transition-all hover:-translate-y-2 w-full px-5 md:w-auto'}`}>
+        {showContact &&
+        <div className="relative min-h-[8vh] md:min-h-[11vh] 2xl:min-h-[7vh] xxl:min-h-[9vh]">
+            <div className={`-translate-x-1/2 left-1/2 ${isOpen ? 'fixed top-20 flex justify-center items-center z-20 xxl:top-60' : 'absolute z-[1] mb-[-2em] transition-transform hover:-translate-y-2 w-full px-5 md:w-auto'}`}>
                 <motion.div layout  className={`bg-pink ${isOpen ? 'min-h-[20px] min-w-[10em] rounded-xl mx-10 md:mx-0' : 'rounded-t-xl' }`}>
                     {!isOpen &&
                     <motion.div layout="position" onClick={() => setIsOpen(!isOpen)} className={`cursor-pointer p-2 grid grid-cols-[1.1fr_0.06fr] gap-3 items-center px-8 pt-3 pb-12 text-[4.2vw] md:px-10 md:text-xl xxl:px-16 xxl:pt-7 xxl:pb-24 xxl:text-4xl`}>
@@ -123,15 +127,15 @@ return (
                     <form action="/send-data-here" method="post" className='grid grid-cols-2 gap-5'>
                         <div>
                         <label for="first">Name</label><br/>
-                        <input type="text" id="first" name="first" className="bg-transparent border-b border-black mb-2 max-w-[90%] md:max-w-full xxl:mb-10"/><br/>
+                        <input type="text" id="first" name="first" className="bg-transparent rounded-none border-b border-black mb-2 max-w-[90%] md:max-w-full xxl:mb-10"/><br/>
                         </div>
                         <div>
                         <label for="last">Company</label><br/>
-                        <input type="text" id="last" name="last" className="bg-transparent border-b border-black mb-2 max-w-[90%] md:max-w-full xxl:mb-10"/><br/>
+                        <input type="text" id="last" name="last" className="bg-transparent rounded-none border-b border-black mb-2 max-w-[90%] md:max-w-full xxl:mb-10"/><br/>
                         </div>
                         <div>
                         <label for="first">Email</label><br/>
-                        <input type="text" id="first" name="first" className="bg-transparent border-b border-black mb-2 max-w-[90%] md:max-w-full xxl:mb-10"/><br/>
+                        <input type="text" id="first" name="first" className="bg-transparent rounded-none border-b border-black mb-2 max-w-[90%] md:max-w-full xxl:mb-10"/><br/>
                         </div>
                         <div>
                         <label for="last">Tel</label><br/>
@@ -160,8 +164,8 @@ return (
                 </motion.div>
             </div>
         </div>
-        
-        <Footer/>
+        }
+        {showContact && <Footer/>}
         <div className={`h-screen w-screen fixed top-0 left-0 z-10  bg-white ${isOpen ? 'opacity-75 duration-300' : 'opacity-0 duration-75 pointer-events-none'}`} onClick={() => setIsOpen(!isOpen)}></div>
     </div>
     </>
