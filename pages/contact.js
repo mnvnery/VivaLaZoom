@@ -34,15 +34,15 @@ export default function Contact({contact}) {
                     <form action="/send-data-here" method="post" className='grid grid-cols-2 gap-5'>
                         <div>
                         <label for="first">Name</label><br/>
-                        <input type="text" id="first" name="first" className="bg-transparent border-b border-black mb-2 max-w-[90%] md:max-w-full xxl:mb-10"/><br/>
+                        <input type="text" id="first" name="first" className="bg-transparent border-b rounded-none border-black mb-2 max-w-[90%] md:max-w-full xxl:mb-10"/><br/>
                         </div>
                         <div>
                         <label for="last">Company</label><br/>
-                        <input type="text" id="last" name="last" className="bg-transparent border-b border-black mb-2 max-w-[90%] md:max-w-full xxl:mb-10"/><br/>
+                        <input type="text" id="last" name="last" className="bg-transparent border-b rounded-none border-black mb-2 max-w-[90%] md:max-w-full xxl:mb-10"/><br/>
                         </div>
                         <div>
                         <label for="first">Email</label><br/>
-                        <input type="text" id="first" name="first" className="bg-transparent border-b border-black mb-2 max-w-[90%] md:max-w-full xxl:mb-10"/><br/>
+                        <input type="text" id="first" name="first" className="bg-transparent border-b rounded-none border-black mb-2 max-w-[90%] md:max-w-full xxl:mb-10"/><br/>
                         </div>
                         <div>
                         <label for="last">Tel</label><br/>
