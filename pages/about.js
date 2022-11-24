@@ -209,12 +209,15 @@ export default function About({ aboutPage }) {
         </SoftMotion>
         <SoftMotion>
             <div className="relative mt-16 mb-12 h-[35vh] w-full md:h-[80vh]">
-            <Image
-                src={aboutPage.about.image1.url}
-                objectFit="cover"
-                layout="fill"
-                className="rounded-b-xl rounded-tr-xl"
-            />
+                {aboutPage.about.image1 === null ?
+                <div></div>  
+                : <Image
+                    src={aboutPage.about.image1.url}
+                    objectFit="cover"
+                    layout="fill"
+                    className="rounded-b-xl rounded-tr-xl"
+                />
+                }
             <div className="flex h-full w-full items-center justify-center">
                 <div className="absolute">
                     <div className='relative w-[40vw] h-40 md:h-32 md:w-[25vw] xxl:h-56'>
@@ -289,7 +292,10 @@ export default function About({ aboutPage }) {
             transition={{ stiffness: 50, duration: 0.7 }}
         >
             <div className="relative mb-12 h-[35vh] w-full md:h-[85vh] md:w-[60vw] mt-[-8em] md:mt-[-10em] xxl:mt-[-15em] xxl:h-[70vh]">
-            <Image src={aboutPage.about.image2.url} objectFit="contain" layout="fill" />
+            {aboutPage.about.image1 === null ?
+            <div></div>
+            : <Image src={aboutPage.about.image2.url} objectFit="contain" layout="fill" />
+            }
             </div>
         </motion.div>
         </>
