@@ -22,7 +22,6 @@ const INSIGHTS_QUERY = `{
         title
         slug
         category
-        content
         date
         size
         coverImage {
@@ -122,7 +121,7 @@ export default function Insights({ page }) {
         <div className="mb-16 grid-cols-3 gap-7 space-y-5 md:grid md:space-y-0">
             {page.articles.slice(0, 3).map((insight, i) => (
             <div key={i} className="hover-view">
-                <Link href={`#`}>
+                <Link href={`/insights/${insight.slug}`}>
                 <div>
                     <div className="relative">
                     <div className="relative h-[40vh] w-full xxl:h-[35vh]">
@@ -166,7 +165,7 @@ export default function Insights({ page }) {
             {page.articles.slice(3).map((insight, i) => (
             <div key={i} className={`hover-view ${postSize(insight.size)} ${imageHeight(insight.size)}`}>
                 <SoftMotion>
-                <Link href={`#`}>
+                <Link href={`/insights/${insight.slug}`}>
                 <div className={insight.size === 'small' ? '' : 'flex w-full space-x-7'}>
                     <div className={`relative ${flexSize(insight.size)}`}>
                     <div className={`relative w-full ${imageHeight(insight.size)}`}>
