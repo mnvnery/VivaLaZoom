@@ -21,7 +21,6 @@ const FILTERED_QUERY = `
             }
             date
             category
-            content
             contentBlocks {
                 ... on ImageRecord {
                     id
@@ -84,10 +83,9 @@ export async function getStaticProps({ params }) {
 }
 
 export default function Project({ data }) {
-    console.log(data.contentBlocks[1].text)
     return (
         <>
-        <div className="absolute top-0 left-0 mx-[-1vw] h-[85vh] w-[102vw]">
+        <div className="absolute top-0 left-0 mx-[-1vw] h-[40vh] md:h-[85vh] w-[102vw]">
             <Image
             src={data.coverImage.url}
             objectFit="cover"
@@ -95,10 +93,10 @@ export default function Project({ data }) {
             className="object-bottom"
             />
         </div>
-        <div className="mt-[75vh]"></div>
+        <div className="mt-[30vh] md:mt-[75vh]"></div>
         <div className='md:grid grid-cols-[0.5fr_1.5fr]'>
-        <div className='text-2xl'>{data.title}</div>
-        <div className="mx-20 mb-16 text-2xl">
+        <div className='text-2xl mb-10 font-bold'>{data.title}</div>
+        <div className="md:mx-20 mb-16 text-xl md:text-2xl">
         {data.contentBlocks.map((w, i) => (
                     <div key={i}>
                         {(w.imageFile != undefined &&
@@ -109,10 +107,10 @@ export default function Project({ data }) {
                                 <div dangerouslySetInnerHTML={{__html: w.text}} className={`leading-tight`}/>)
 
                             || (w.quote != undefined &&
-                                    <div dangerouslySetInnerHTML={{__html: w.quote}} className={`float-right ml-20 mb-12 font-playfair text-xl md:float-none md:ml-[-3em] md:mt-10 md:mb-14 md:w-3/5 md:text-5xl xxl:mb-24 xxl:text-7xl`}/>)
+                                    <div dangerouslySetInnerHTML={{__html: w.quote}} className={`float-right ml-20 mb-12 font-playfair text-2xl md:float-none md:ml-[-3em] md:mt-10 md:mb-14 md:w-3/5 md:text-5xl xxl:mb-24 xxl:text-7xl`}/>)
 
                             || (w.vimeoLink !== undefined &&
-                                <div className="relative mt-8 pt-[56.25%] md:my-7">
+                                <div className="relative my-7 pt-[56.25%] md:my-7">
                                     <ReactPlayer
                                     url={w.vimeoLink.url}
                                     playing
