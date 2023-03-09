@@ -2,6 +2,7 @@ import { request } from '../../lib/datocms'
 import Image from 'next/image'
 import ReactMarkdown from 'react-markdown'
 import dynamic from 'next/dynamic'
+import cn from "classnames";
 
 const ReactPlayer = dynamic(() => import('react-player/lazy'), { ssr: false })
 
@@ -38,6 +39,18 @@ const FILTERED_QUERY = `
                     ... on QuoteRecord {
                         id
                         quote
+                    }
+                    ... on ImageGalleryRecord {
+                        id
+                        images {
+                            url
+                            focalPoint {
+                                x
+                                y
+                            }
+                        }
+                        columns
+                        columnsMobile
                     }
                     ... on VideoRecord {
                     id
@@ -95,8 +108,8 @@ export default function Project({ data }) {
         </div>
         <div className="mt-[30vh] md:mt-[75vh]"></div>
         <div className='md:grid grid-cols-[0.5fr_1.5fr]'>
-        <div className='text-2xl mb-10 font-bold'>{data.title}</div>
-        <div className="md:mx-20 mb-16 text-xl md:text-2xl">
+        <div className='text-2xl mb-10 font-bold w-4/5 xxl:text-5xl'>{data.title}</div>
+        <div className="md:mx-32 mb-16 text-xl md:text-2xl md:mr-[15%]">
         {data.contentBlocks.map((w, i) => (
                     <div key={i}>
                         {(w.imageFile != undefined &&
@@ -104,13 +117,13 @@ export default function Project({ data }) {
                                 <Image src={w.imageFile.url} objectFit="cover" width={w.imageFile.width} height={w.imageFile.height} alt={w.imageFile.alt} />
                             </div>)
                             || (w.text != undefined &&
-                                <div dangerouslySetInnerHTML={{__html: w.text}} className={`leading-tight`}/>)
+                                <div dangerouslySetInnerHTML={{__html: w.text}} className={`paragraphs md:leading-tight xxl:leading-tight xxl:text-5xl`}/>)
 
                             || (w.quote != undefined &&
-                                    <div dangerouslySetInnerHTML={{__html: w.quote}} className={`float-right ml-20 mb-12 font-playfair text-2xl md:float-none md:ml-[-3em] md:mt-10 md:mb-14 md:w-3/5 md:text-5xl xxl:mb-24 xxl:text-7xl`}/>)
+                                    <div dangerouslySetInnerHTML={{__html: w.quote}} className={`float-right ml-20 mb-12 font-playfair text-2xl mt-5 md:float-none md:ml-[-3em] md:mt-10 md:mb-14 md:w-4/6 md:text-5xl xxl:mb-24 xxl:text-7xl xxl:mt-14`}/>)
 
                             || (w.vimeoLink !== undefined &&
-                                <div className="relative my-7 pt-[56.25%] md:my-7">
+                                <div className="relative my-7 pt-[56.25%] md:my-7 xxl:my-12">
                                     <ReactPlayer
                                     url={w.vimeoLink.url}
                                     playing
@@ -121,8 +134,23 @@ export default function Project({ data }) {
                                     height="100%"
                                     className="absolute top-0 left-0 h-full md:h-[90%]"
                                     />
+                                </div>)
+                            || (w.columns !== undefined &&
+                                <div className={cn("mb-12 grid gap-4 mt-7 xxl:gap-8 xxl:mt-12", {
+                                    "grid-cols-1": w.columnsMobile === 1,
+                                    "grid-cols-2": w.columnsMobile === 2,
+                                    "md:grid-cols-1": w.columns === 1,
+                                    "md:grid-cols-2": w.columns === 2,
+                                    "md:grid-cols-3": w.columns === 3,
+                                })}>
+                                {w.images.map((image, i) => (
+                                    <div key={i} className="relative md:h-[38vh] xxl:h-[35vh]">
+                                    <Image src={image.url} objectFit="cover" layout="fill" objectPosition={`${image.focalPoint.x * 100}% ${image.focalPoint.y * 100}%`}/>
+                                    </div>
+                                ))}
                                 </div>
                                 )
+                        
                         }
                     </div>
                 ))}
