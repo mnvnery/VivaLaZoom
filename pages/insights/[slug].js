@@ -51,6 +51,7 @@ const FILTERED_QUERY = `
                         }
                         columns
                         columnsMobile
+                        orientation
                     }
                     ... on VideoRecord {
                     id
@@ -126,9 +127,7 @@ export default function Project({ data }) {
                                 <div className="relative my-7 pt-[56.25%] md:my-7 xxl:my-12">
                                     <ReactPlayer
                                     url={w.vimeoLink.url}
-                                    playing
                                     controls
-                                    muted
                                     loop
                                     width="100%"
                                     height="100%"
@@ -144,7 +143,7 @@ export default function Project({ data }) {
                                     "md:grid-cols-3": w.columns === 3,
                                 })}>
                                 {w.images.map((image, i) => (
-                                    <div key={i} className="relative md:h-[38vh] xxl:h-[35vh]">
+                                    <div key={i} className={`relative ${w.orientation ? 'md:h-[38vh] xxl:h-[35vh]' : 'md:h-[50vh] xxl:h-[45vh]' }`}>
                                     <Image src={image.url} objectFit="cover" layout="fill" objectPosition={`${image.focalPoint.x * 100}% ${image.focalPoint.y * 100}%`}/>
                                     </div>
                                 ))}
