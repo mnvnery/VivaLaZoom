@@ -149,28 +149,21 @@ export default function Project({ data }) {
             )}
         </SoftMotion>
         <SoftMotion>
+        {data.suggestedProjects.length > 0 && (
             <div className="mx-[-1em] md:mx-[-2em] mb-[-4em] rounded-t-xl bg-gray-100 px-8 pb-20 pt-8 xxl:mx-[-5em] xxl:mb-[-8em] xxl:px-20 xxl:pt-20 xxl:pb-40">
             <div className="hidden md:block">
                 <div className="mb-5 text-2xl xxl:mb-12 xxl:text-5xl">Other Work</div>
                 <div className="grid grid-cols-3 gap-5">
-                <ProjectCard
-                    thumbnail={data.suggestedProjects[0].thumbnail.url}
-                    title={data.suggestedProjects[0].title}
-                    description={data.suggestedProjects[0].shortDescription}
-                    href={`/work/${data.suggestedProjects[0].slug}`}
-                />
-                <ProjectCard
-                    thumbnail={data.suggestedProjects[1].thumbnail.url}
-                    title={data.suggestedProjects[1].title}
-                    description={data.suggestedProjects[1].shortDescription}
-                    href={`/work/${data.suggestedProjects[1].slug}`}
-                />
-                <ProjectCard
-                    thumbnail={data.suggestedProjects[2].thumbnail.url}
-                    title={data.suggestedProjects[2].title}
-                    description={data.suggestedProjects[2].shortDescription}
-                    href={`/work/${data.suggestedProjects[2].slug}`}
-                />
+                {data.suggestedProjects.map((w, i) => (
+                    <div key={i}>
+                        <ProjectCard
+                        thumbnail={w.thumbnail.url}
+                        title={w.title}
+                        description={w.shortDescription}
+                        href={`/work/${w.slug}`}
+                        />
+                    </div>
+                ))}
                 </div>
             </div>
             <div className="md:hidden">
@@ -196,6 +189,7 @@ export default function Project({ data }) {
                 <Button href="/work" text="Discover all work"></Button>
             </div>
             </div>
+        )}
         </SoftMotion>
         </>
     )
