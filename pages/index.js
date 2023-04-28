@@ -166,7 +166,7 @@ export default function Home({ home, insights, work }) {
                         {insight.title}
                       </div>
                     </div>
-                    <div className="view relative">
+                    <div className="view relativ cursor-pointer">
                       <div className="triangle-black absolute right-0 bottom-0"></div>
                       <div className="absolute right-4 bottom-2 text-xl text-white md:text-2xl xxl:right-6 xxl:bottom-4 xxl:text-4xl">
                         View
