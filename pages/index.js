@@ -75,7 +75,7 @@ export default function Home({ home, insights, work }) {
     <>
     <div className="relative mb-8 rounded-xl pt-[56.25%] md:mt-0 xxl:mb-16">
         <ReactPlayer
-          url='https://vimeo.com/747234731'
+          url={home.homePage.showreel.url}
           playing
           muted
           loop
