@@ -26,6 +26,11 @@ body {
   height: auto;
 }
 
+.body-text a {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
 .triangle {
   width: 0;
   height: 0;

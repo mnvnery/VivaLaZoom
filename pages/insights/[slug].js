@@ -118,10 +118,10 @@ export default function Project({ data }) {
                                 <Image src={w.imageFile.url} objectFit="cover" width={w.imageFile.width} height={w.imageFile.height} alt={w.imageFile.alt} />
                             </div>)
                             || (w.text != undefined &&
-                                <div dangerouslySetInnerHTML={{__html: w.text}} className={`paragraphs md:leading-tight xxl:leading-tight xxl:text-5xl`}/>)
+                                <div dangerouslySetInnerHTML={{__html: w.text}} className={`paragraphs body-text md:leading-tight xxl:leading-tight xxl:text-5xl`}/>)
 
                             || (w.quote != undefined &&
-                                    <div dangerouslySetInnerHTML={{__html: w.quote}} className={`float-right ml-20 mb-12 font-playfair text-2xl mt-5 md:float-none md:ml-[-3em] md:mt-10 md:mb-14 md:w-4/6 md:text-5xl xxl:mb-24 xxl:text-7xl xxl:mt-14`}/>)
+                                    <div dangerouslySetInnerHTML={{__html: w.quote}} className={`float-right body-text ml-20 mb-12 font-playfair text-2xl mt-5 md:float-none md:ml-[-3em] md:mt-10 md:mb-14 md:w-4/6 md:text-5xl xxl:mb-24 xxl:text-7xl xxl:mt-14`}/>)
 
                             || (w.vimeoLink !== undefined &&
                                 <div className="relative my-7 pt-[56.25%] md:my-7 xxl:my-12">

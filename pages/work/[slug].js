@@ -82,7 +82,7 @@ export default function Project({ data }) {
             <div className="text-xl md:text-2xl xxl:text-5xl">
                 <span className="font-bold md:font-normal">The Brief</span> <br />
                 <br />
-                <span className="paragraphs">{data.brief}</span>
+                <span className="paragraphs body-text">{data.brief}</span>
             </div>
             </div>
         </SoftMotion>
@@ -102,7 +102,7 @@ export default function Project({ data }) {
                 <span className="font-bold md:font-normal">The Story</span>
                 <br />
                 <br />
-                <span className="paragraphs">{data.story}</span>
+                <span className="paragraphs body-text">{data.story}</span>
             </div>
             <div></div>
             </div>
@@ -120,7 +120,7 @@ export default function Project({ data }) {
             <div className="text-xl md:text-2xl xxl:text-5xl">
                 <span className="font-bold md:font-normal">The Vision</span> <br />
                 <br />
-                <span className="paragraphs">{data.vision}</span>
+                <span className="paragraphs body-text">{data.vision}</span>
             </div>
             </div>
         </SoftMotion>
@@ -142,7 +142,7 @@ export default function Project({ data }) {
                 <div>{data.testimonialName}</div>
                 <div className="text-slate-400 md:text-slate-600">{data.testimonialRole}</div>
                 </div>
-                <div className="ml-16 mt-8 font-playfair text-xl md:mr-24 md:mt-0 md:text-4xl xxl:text-7xl">
+                <div className="ml-16 mt-8 body-text font-playfair text-xl md:mr-24 md:mt-0 md:text-4xl xxl:text-7xl">
                 {data.testimonial}
                 </div>
             </div>
