@@ -89,7 +89,7 @@ export default function About({ aboutPage }) {
             <div className="mb-5 text-xl md:mb-3 md:text-2xl xxl:mb-8 xxl:mt-8 xxl:text-5xl">
             Who we are
             </div>
-            <div className="text-3xl font-bold md:text-5xl xxl:text-7xl">
+            <div className="text-3xl font-bold body-text md:text-5xl xxl:text-7xl">
             {aboutPage.about.whoWeAre}
             </div>
             </div>
@@ -106,7 +106,7 @@ export default function About({ aboutPage }) {
             <div className="relative mb-12 h-40 w-40">
                 <Image src="/static/images/star.svg" objectFit="cover" layout="fill" />
             </div>
-            <div className="self-start text-xl md:text-2xl xxl:text-5xl">
+            <div className="self-start text-xl body-text md:text-2xl xxl:text-5xl">
                 <div dangerouslySetInnerHTML={{__html: aboutPage.about.whoWeAreExtra}} />
             </div>
             </div>
@@ -281,7 +281,7 @@ export default function About({ aboutPage }) {
         <SoftMotion>
             <div className='bg-gray-100 mx-[-1em] md:mx-[-2em] px-8 py-12 mt-24 rounded-t-xl xxl:mt-40 xxl:mx-[-5em] xxl:px-20'>
             <div className="mb-10 text-2xl xxl:mb-20 xxl:text-5xl">Our History</div>
-            <div className="paragraphs mx-10 mb-44 text-xl md:mx-32 md:columns-2 md:text-2xl xxl:mx-56 xxl:text-5xl xxl:mb-56">
+            <div className="paragraphs mx-10 mb-44 body-text text-xl md:mx-32 md:columns-2 md:text-2xl xxl:mx-56 xxl:text-5xl xxl:mb-56">
                 <div dangerouslySetInnerHTML={{__html: aboutPage.about.history}} />
             </div>
             </div>
