@@ -1,4 +1,5 @@
 import { request } from '../lib/datocms'
+import Head from 'next/head'
 
 const CONTACT_QUERY = `{
     contact {
@@ -9,6 +10,7 @@ const CONTACT_QUERY = `{
         email
     }
 }`
+
 
 export async function getStaticProps() {
     const data = await request({
@@ -26,6 +28,7 @@ export default function Contact({contact}) {
     console.log(contact)
     return (
     <>
+
     <div className="min-h-[8vh] md:min-h-[11vh] 2xl:min-h-[7vh] xxl:min-h-[9vh] mb-28">
             <div className={`flex justify-center items-center z-20 xxl:top-60`}>
                 <div layout  className={`bg-pink min-h-[20px] min-w-[10em] rounded-xl md:mx-0`}>

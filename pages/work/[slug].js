@@ -6,6 +6,7 @@ import EmblaCarousel from '../../components/EmblaCarousel'
 import Link from 'next/link'
 import SoftMotion from '../../components/SoftMotion'
 import ProjectCard from '../../components/ProjectCard'
+import Head from 'next/head'
 
 const ReactPlayer = dynamic(() => import('react-player/lazy'), { ssr: false })
 
@@ -39,6 +40,13 @@ const FILTERED_QUERY = `
             allImages {
                 url
             }
+            seo {
+                title
+                description
+                image {
+                    url
+                }
+            }
             suggestedProjects {
                 slug
                 title 
@@ -53,6 +61,17 @@ const FILTERED_QUERY = `
 export default function Project({ data }) {
     return (
         <>
+        <Head>
+        <title>
+            {data.seo.title}
+        </title>
+        <meta
+            name="description"
+            content={data.seo.description}
+            key="desc"
+        />
+        <meta property="og:image" content={data.seo.image.url} />
+        </Head> 
         <div className="mt-5 mb-12 hidden text-2xl font-bold uppercase md:mb-8 md:block md:text-5xl">
             {data.title}
         </div>

@@ -4,6 +4,7 @@ import siteMetadata from '../data/siteMetadata'
 import Button from '../components/Button'
 import SoftMotion from '../components/SoftMotion'
 import { motion } from 'framer-motion'
+import Head from 'next/head'
 
 function colour(hex) {
     if (hex === '#FFBAC4') {
@@ -23,6 +24,10 @@ function colour(hex) {
 
 const ABOUT_QUERY = `{
     about {
+        seo {
+            title
+            description
+        }
         whoWeAre
         whoWeAreExtra
         people {
@@ -75,6 +80,16 @@ export async function getStaticProps() {
 export default function About({ aboutPage }) {
     return (
         <>
+        <Head>
+        <title>
+            {aboutPage.about.seo.title}
+        </title>
+        <meta
+            name="description"
+            content={aboutPage.about.seo.description}
+            key="desc"
+        />
+        </Head> 
         <div className="absolute top-0 left-0 mx-[-1vw] h-[20vh] w-[102vw] md:h-[40vh]">
             <Image
             src={aboutPage.about.headerImage.url}

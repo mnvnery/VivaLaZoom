@@ -4,6 +4,7 @@ import Link from 'next/link'
 import SoftMotion from '../components/SoftMotion'
 import { motion } from 'framer-motion'
 import dynamic from 'next/dynamic'
+import Head from 'next/head'
 
 const ReactPlayer = dynamic(() => import('react-player/lazy'), { ssr: false })
 
@@ -31,6 +32,13 @@ const INSIGHTS_QUERY = `{
             hex
         }
         textWhite
+        }
+        seo {
+            title
+            description
+            image {
+                url
+            }
         }
     }
 }`
@@ -101,7 +109,16 @@ export async function getStaticProps() {
 export default function Insights({ page }) {
     return (
         <>
-
+        <Head>
+        <title>
+            {page.seo.title}
+        </title>
+        <meta
+            name="description"
+            content={page.seo.description}
+            key="desc"
+        />
+        </Head> 
         <div className="absolute top-0 left-0 mx-[-1vw] h-[20vh] w-[102vw] md:h-[40vh]">
             <Image
             src={page.headerImage.url}
@@ -134,8 +151,8 @@ export default function Insights({ page }) {
                     </div>
 
                     <div className="absolute top-5 left-5 xxl:top-8 xxl:left-8">
-                        <div className="mb-5 text-2xl xxl:mb-10 xxl:text-5xl">{insight.category}</div>
-                        <div className="w-2/3 text-3xl font-bold uppercase leading-extra-tight xxl:text-6xl">
+                        <div className={`mb-5 text-2xl xxl:mb-10 xxl:text-5xl ${insight.textWhite ? 'text-white' : 'text-black'}`}>{insight.category}</div>
+                        <div className={`w-2/3 text-3xl font-bold uppercase leading-extra-tight xxl:text-6xl ${insight.textWhite ? 'text-white' : 'text-black'}`}>
                         {insight.title}
                         </div>
                     </div>
