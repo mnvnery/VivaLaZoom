@@ -33,6 +33,7 @@ const INSIGHTS_QUERY = `{
     coverImage {
       url
     }
+    textWhite
   }
 }`
 
@@ -161,8 +162,8 @@ export default function Home({ home, insights, work }) {
                     </div>
 
                     <div className="absolute top-5 left-5 xxl:top-8 xxl:left-8">
-                      <div className="text-xl xxl:mb-10 xxl:text-5xl">{insight.category}</div>
-                      <div className="w-2/3 text-2xl font-bold uppercase xxl:text-6xl">
+                      <div className={`text-xl xxl:mb-10 xxl:text-5xl ${insight.textWhite ? 'text-white' : 'text-black'}`}>{insight.category}</div>
+                      <div className={`w-2/3 text-2xl font-bold uppercase xxl:text-6xl ${insight.textWhite ? 'text-white' : 'text-black'}`}>
                         {insight.title}
                       </div>
                     </div>

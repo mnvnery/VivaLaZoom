@@ -3,6 +3,7 @@ import { request } from '../lib/datocms'
 import Image from 'next/image'
 import Link from 'next/link'
 import SoftMotion from '../components/SoftMotion'
+import Head from 'next/head'
 
 const WORK_QUERY = `{
     workPage {
@@ -32,6 +33,13 @@ const WORK_QUERY = `{
     footerImage {
         url
     }
+    seo {
+        title
+        description
+        image {
+            url
+        }
+    }
     }
 }`
 
@@ -49,6 +57,16 @@ export async function getStaticProps() {
 export default function Work({ work }) {
 return (
 <>
+    <Head>
+    <title>
+        {work.seo.title}
+    </title>
+    <meta
+        name="description"
+        content={work.seo.description}
+        key="desc"
+    />
+    </Head> 
     <div className="mb-10 mt-7 grid-cols-2 gap-7 md:mt-0 md:grid xxl:mt-10 xxl:gap-12">
     {work.projects.map((p, i) => (
         <div key={i} className={`hover-view ${p.large ? 'col-span-2' : ''}`}>

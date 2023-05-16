@@ -3,6 +3,7 @@ import Image from 'next/image'
 import ReactMarkdown from 'react-markdown'
 import dynamic from 'next/dynamic'
 import cn from "classnames";
+import Head from 'next/head';
 
 const ReactPlayer = dynamic(() => import('react-player/lazy'), { ssr: false })
 
@@ -22,6 +23,13 @@ const FILTERED_QUERY = `
             }
             date
             category
+            articleSeo {
+                title
+                description
+                image {
+                    url
+                }
+            }
             contentBlocks {
                 ... on ImageRecord {
                     id
@@ -97,8 +105,21 @@ export async function getStaticProps({ params }) {
 }
 
 export default function Project({ data }) {
+    console.log(data.articleSeo)
     return (
         <>
+        <Head>
+        <title>
+            {data.articleSeo.title}
+        </title>
+        <meta
+            name="description"
+            content={data.articleSeo.description}
+            key="desc"
+        />
+        <meta property="og:image" content={data.articleSeo.image.url} />
+
+        </Head> 
         <div className="absolute top-0 left-0 mx-[-1vw] h-[40vh] md:h-[85vh] w-[102vw]">
             <Image
             src={data.coverImage.url}
