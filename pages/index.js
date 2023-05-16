@@ -28,6 +28,7 @@ const HOMEPAGE_QUERY = `{
 
 const INSIGHTS_QUERY = `{
   allInsights(first:3) {
+    slug
     title
     category
     coverImage {
@@ -150,7 +151,8 @@ export default function Home({ home, insights, work }) {
             <div className="mb-3 text-2xl xxl:mb-12 xxl:text-5xl">Insights</div>
             <div className="grid grid-cols-3 gap-5 xxl:gap-10">
               {insights.allInsights.map((insight, i) => (
-                <div key={i} className="hover-view">
+                <div key={i} className="hover-view cursor-pointer">
+                  <Link href={`insights/${insight.slug}`}>
                   <div className="relative">
                     <div className="relative h-[40vh] w-full">
                       <Image
@@ -167,13 +169,14 @@ export default function Home({ home, insights, work }) {
                         {insight.title}
                       </div>
                     </div>
-                    <div className="view relativ cursor-pointer">
+                    <div className="view relative cursor-pointer">
                       <div className="triangle-black absolute right-0 bottom-0"></div>
                       <div className="absolute right-4 bottom-2 text-xl text-white md:text-2xl xxl:right-6 xxl:bottom-4 xxl:text-4xl">
                         View
                       </div>
                     </div>
                   </div>
+                  </Link>
                 </div>
               ))}
             </div>
@@ -182,6 +185,7 @@ export default function Home({ home, insights, work }) {
             <EmblaCarousel title="Insights">
               {insights.allInsights.map((insight, i) => (
                 <div className="embla__slide relative" key={i}>
+                  <Link href={`insights/${insight.slug}`}>
                   <div className="relative">
                     <div className="relative h-[40vh] w-full">
                       <Image
@@ -192,18 +196,19 @@ export default function Home({ home, insights, work }) {
                       />
                     </div>
                     <div className="absolute top-5 left-5">
-                      <div className="text-xl">{insight.category}</div>
-                      <div className="w-2/3 text-2xl font-bold uppercase xxl:text-5xl">
+                      <div className={`text-xl`}>{insight.category}</div>
+                      <div className={`w-2/3 text-2xl font-bold uppercase xxl:text-5xl`}>
                         {insight.title}
                       </div>
                     </div>
                   </div>
+                  </Link>
                 </div>
               ))}
             </EmblaCarousel>
           </div>
           <div className="py-10 text-center xxl:py-20">
-            <Button href="/work" text="Discover all insights"></Button>
+            <Button href="/insights" text="Discover all insights"></Button>
           </div>
         </div>
       </SoftMotion>
