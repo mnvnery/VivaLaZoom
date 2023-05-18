@@ -40,8 +40,8 @@ return (
             </svg>
         </button>
         <div className='px-5 md:px-14 pt-6 pb-12'>
-        <form name="contact" method="POST" data-netlify="true" className='grid grid-cols-2 gap-5'>
-            <input type="hidden" name="form-name" value="contact" />
+        <form name="contact" method="POST" action="https://api.web3forms.com/submit" className='grid grid-cols-2 gap-5'>
+            <input type="hidden" name="access_key" value="3e12a349-5362-4658-9e29-11a7b22cb4a4" />
             <div>
             <label for="first">Name</label><br/>
             <input type="text" id="first" name="first" className="bg-transparent border-b border-black mb-2 max-w-[90%] md:max-w-full"/><br/>
