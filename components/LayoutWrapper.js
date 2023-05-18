@@ -124,25 +124,26 @@ return (
                         </svg>
                     </button>
                     <div className='px-5 md:px-14 pt-6 pb-12 xxl:pb-20'>
-                    <form action="/send-data-here" method="post" className='grid grid-cols-2 gap-5'>
+                    <form name="contact" method="POST" data-netlify="true" className='grid grid-cols-2 gap-5'>
+                        <input type="hidden" name="form-name" value="contact" />
                         <div>
-                        <label for="first">Name</label><br/>
-                        <input type="text" id="first" name="first" className="bg-transparent rounded-none border-b border-black mb-2 max-w-[90%] md:max-w-full xxl:mb-10"/><br/>
+                        <label for="name">Name</label><br/>
+                        <input type="text" id="name" name="Name" className="bg-transparent rounded-none border-b border-black mb-2 max-w-[90%] md:max-w-full xxl:mb-10"/><br/>
                         </div>
                         <div>
-                        <label for="last">Company</label><br/>
-                        <input type="text" id="last" name="last" className="bg-transparent rounded-none border-b border-black mb-2 max-w-[90%] md:max-w-full xxl:mb-10"/><br/>
+                        <label for="company">Company</label><br/>
+                        <input type="text" id="company" name="Company" className="bg-transparent rounded-none border-b border-black mb-2 max-w-[90%] md:max-w-full xxl:mb-10"/><br/>
                         </div>
                         <div>
-                        <label for="first">Email</label><br/>
-                        <input type="text" id="first" name="first" className="bg-transparent rounded-none border-b border-black mb-2 max-w-[90%] md:max-w-full xxl:mb-10"/><br/>
+                        <label for="email">Email</label><br/>
+                        <input type="text" id="email" name="Email" className="bg-transparent rounded-none border-b border-black mb-2 max-w-[90%] md:max-w-full xxl:mb-10"/><br/>
                         </div>
                         <div>
-                        <label for="last">Tel</label><br/>
-                        <input type="text" id="last" name="last" className="bg-transparent border-b border-black mb-2 max-w-[90%] md:max-w-full xxl:mb-10"/><br/>
+                        <label for="phone">Tel</label><br/>
+                        <input type="text" id="phone" name="Phone" className="bg-transparent border-b border-black mb-2 max-w-[90%] md:max-w-full xxl:mb-10"/><br/>
                         </div>
                         <div className='col-span-2'>
-                        <label for="last">Message</label><br/>
+                        <label for="message">Message</label><br/>
                         <textarea maxlength="5000" id="Message" name="Message" data-name="Message" required="" className="border border-black bg-transparent p-3 w-full mt-1.5"></textarea><br/>
                         </div>
                         <button type="submit" className="rounded-full bg-black text-pink border border-black px-5 py-2 hover:bg-transparent hover:text-black xxl:px-10 xxl:py-4 xxl:text-4xl mt-5 xxl:mt-12">Submit</button>
