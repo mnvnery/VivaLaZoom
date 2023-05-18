@@ -7,6 +7,8 @@ import MobileNav from "./MobileNav"
 import Footer from "./Footer"
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
+import { useForm } from '@formspree/react';
+import {AiOutlineCheckCircle} from 'react-icons/ai'
 
 
 function useScrollDirection() {
@@ -34,11 +36,11 @@ function useScrollDirection() {
 
 
 export default function LayoutWrapper({ children }) {
+const [state, handleSubmit] = useForm('mzbqwwol');
 const [isOpen, setIsOpen] = useState(false)
 const scrollDirection = useScrollDirection();
 const [scrollY, setScrollY] = useState(0);
 const router = useRouter()
-
 
 useEffect(() => {
     const handleScroll = () => {
@@ -124,30 +126,37 @@ return (
                         </svg>
                     </button>
                     <div className='px-5 md:px-14 pt-6 pb-12 xxl:pb-20'>
-                    <form name="contact-form" method="POST" netlify className='grid grid-cols-2 gap-5'>
+                    {state.succeeded ? 
+                    <div className="flex flex-col items-center justify-center">
+                        <span className="text-2xl pb-2"><AiOutlineCheckCircle/></span>
+                        Thank you for getting in touch!
+                    </div>
+                    :
+                    <form onSubmit={handleSubmit} className='grid grid-cols-2 gap-5'>
                         <input type="hidden" name="form-name" value="contact-form" />
                         <div>
-                        <label for="name">Name</label><br/>
+                        <label htmlFor="name">Name</label><br/>
                         <input type="text" id="name" name="Name" className="bg-transparent rounded-none border-b border-black mb-2 max-w-[90%] md:max-w-full xxl:mb-10"/><br/>
                         </div>
                         <div>
-                        <label for="company">Company</label><br/>
+                        <label htmlFor="company">Company</label><br/>
                         <input type="text" id="company" name="Company" className="bg-transparent rounded-none border-b border-black mb-2 max-w-[90%] md:max-w-full xxl:mb-10"/><br/>
                         </div>
                         <div>
-                        <label for="email">Email</label><br/>
+                        <label htmlFor="email">Email</label><br/>
                         <input type="text" id="email" name="Email" className="bg-transparent rounded-none border-b border-black mb-2 max-w-[90%] md:max-w-full xxl:mb-10"/><br/>
                         </div>
                         <div>
-                        <label for="phone">Tel</label><br/>
+                        <label htmlFor="phone">Tel</label><br/>
                         <input type="text" id="phone" name="Phone" className="bg-transparent border-b border-black mb-2 max-w-[90%] md:max-w-full xxl:mb-10"/><br/>
                         </div>
                         <div className='col-span-2'>
-                        <label for="message">Message</label><br/>
+                        <label htmlFor="message">Message</label><br/>
                         <textarea maxlength="5000" id="Message" name="Message" data-name="Message" required="" className="border border-black bg-transparent p-3 w-full mt-1.5"></textarea><br/>
                         </div>
-                        <button type="submit" className="rounded-full bg-black text-pink border border-black px-5 py-2 hover:bg-transparent hover:text-black xxl:px-10 xxl:py-4 xxl:text-4xl mt-5 xxl:mt-12">Submit</button>
+                        <button type="submit" disabled={state.submitting} className="rounded-full bg-black text-pink border border-black px-5 py-2 hover:bg-transparent hover:text-black xxl:px-10 xxl:py-4 xxl:text-4xl mt-5 xxl:mt-12">Submit</button>
                     </form>
+                    }
                     </div>
                     <div className='text-lg md:text-xl font-bold uppercase flex justify-between bg-black text-pink px-5 md:px-10 py-8 rounded-b-xl space-x-5 xxl:text-3xl'>
                         <div className='leading-6 xxl:leading-tight'>
