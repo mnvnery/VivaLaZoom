@@ -25,7 +25,6 @@ export async function getStaticProps() {
 }
 
 export default function Contact({contact}) {
-    console.log(contact)
     return (
     <>
 
@@ -34,7 +33,8 @@ export default function Contact({contact}) {
                 <div layout  className={`bg-pink min-h-[20px] min-w-[10em] rounded-xl md:mx-0`}>
                     <div className='flex flex-col xxl:text-4xl pt-6'>
                     <div className='px-5 md:px-14 pt-6 pb-12 xxl:pb-20'>
-                    <form action="/send-data-here" method="post" className='grid grid-cols-2 gap-5'>
+                    <form name="contact" method="POST" action="https://api.web3forms.com/submit" className='grid grid-cols-2 gap-5'>
+                    <input type="hidden" name="access_key" value="3e12a349-5362-4658-9e29-11a7b22cb4a4" />
                         <div>
                         <label for="first">Name</label><br/>
                         <input type="text" id="first" name="first" className="bg-transparent border-b rounded-none border-black mb-2 max-w-[90%] md:max-w-full xxl:mb-10"/><br/>
