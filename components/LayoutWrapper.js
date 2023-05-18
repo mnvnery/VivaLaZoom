@@ -124,7 +124,7 @@ return (
                         </svg>
                     </button>
                     <div className='px-5 md:px-14 pt-6 pb-12 xxl:pb-20'>
-                    <form name="contact" method="POST" data-netlify="true" className='grid grid-cols-2 gap-5'>
+                    <form name="contact" action="/success" method="POST" data-netlify="true" className='grid grid-cols-2 gap-5'>
                         <input type="hidden" name="form-name" value="contact" />
                         <div>
                         <label for="name">Name</label><br/>
