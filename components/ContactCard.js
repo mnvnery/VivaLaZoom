@@ -40,7 +40,8 @@ return (
             </svg>
         </button>
         <div className='px-5 md:px-14 pt-6 pb-12'>
-        <form action="/send-data-here" method="post" className='grid grid-cols-2 gap-5'>
+        <form name="contact" method="POST" data-netlify="true" className='grid grid-cols-2 gap-5'>
+            <input type="hidden" name="form-name" value="contact" />
             <div>
             <label for="first">Name</label><br/>
             <input type="text" id="first" name="first" className="bg-transparent border-b border-black mb-2 max-w-[90%] md:max-w-full"/><br/>
