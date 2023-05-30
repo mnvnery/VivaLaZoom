@@ -160,7 +160,7 @@ return (
                     </div>
                     <div className='text-lg md:text-xl font-bold uppercase flex justify-between bg-black text-pink px-5 md:px-10 py-8 rounded-b-xl space-x-5 xxl:text-3xl'>
                         <div className='leading-6 xxl:leading-tight'>
-                            <div className='hover:text-white'>hello@vivalazoom</div>
+                            <div className='hover:text-white'><a href="mailto:hello@vivalazoom.co.uk">hello@vivalazoom.co.uk</a></div>
                             <div className='hover:text-white'>+44(0)161 225 1045</div>
                         </div>
                         <div className='leading-6 xxl:leading-tight'>
